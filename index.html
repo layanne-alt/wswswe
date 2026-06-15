@@ -1,58 +1,498 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calzedonia Brasil — Comércio Atacadista de Moda e Acessórios</title>
-<meta name="description" content="Calzedonia Brasil: comércio atacadista de artigos do vestuário e acessórios. Coleções completas, atendimento personalizado e entrega para todo o Brasil.">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Calzedonia Brasil | Atacado Moda e Acessórios</title>
+    
+    <!-- Bootstrap 5 + Ícones + Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (gerado via dataURI para não depender de arquivo externo) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAKwSURBVFiFzZc/aFNRFMV/bxJtJUiL1KWDm2DpJhRxoNLiUAfBroI4WQvqYqFIRRAdBKV0EoTgIhSxQ3UQQVcFEaWxodZBsFN0aFut0UYK0n9JSXpe7n3v3vfybgr9wSHh5Z773j3vnnvP/Y+AYRg9bDYbH7iYVdXyClWzApcBEGIY4o0LYJ6gXwSMpZzQdR0A/XxqAoPBILquEw6HGRkZIRgM4nQ6CQQCKYd/G8ZZTqfTulZVrQkkEgnC4TCBQID19XUikQiBQIBoNIrP50NV1ZRM1oUuAcPDwzgcDgYGBvB6vYyOjuJ2u+nv7+fWrVuEQiHq6uqIxWJ4vV4CgQAOh4P6+npu3LhBc3MzHo+H5uZmbty4QV1dHY2NjcRiMWRZpq6uDpfLRXV1dUZwXwLfvn1ja2uLra0ttra28Pl8bG9vs7W1RVdXF16vF61pBxcXF1EUhUgkwubmJpFIBEmSGBkZIZFIEAwGOXv2LJFIBKfTSVVVFZFIBIfDgSzLFItFEolE3vC+yK6vr+Pz+aitrSWRSOD1evF6vdTW1uLz+QiHw4iiSCKRwOv1UlVVRTweJxKJ4PV6icfj+Hw+qqqqCIfDpFIpxsfHiUQiOBwOJEnKMnjnsmEYJJNJkskkiUSCSCRCIpEgmUwSCoVS/qZpIkkS0WiUSCTCr1+/iMViJJNJotEosVgMn89HKpUimUwSiURIJpNEo1F+/fpFJBLJG97X9fUYpmmi6zq6rqNpGjdu3CCTyWAYBqqqomkayWSSfD7Pt2/fCIfDJJNJ8vk86XSa9fV1isUiqqqSyWRYX1/n27dv5PN5NE1DVVUymUxecD9FEARpYWGBcDiMruuYpkkikWBhYSHjLhgMkkwm0XWdZDJJKpUimUwSDocpFosUCoW863Q6l1KpVKBpGn19fZTLZXRdJ5FI0NfXh2manDx5kmKxmFN+juv1egHA6XSi6zqqqrK0tERTU1PWvfPpZOq67o6u9no9AEQiEZLJJKFQKCP/Dx2n1KPT6+PXAAAAAElFTkSuQmCC">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefaf5;
+            color: #2b2a28;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .logo-text {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Cores inspiradas no segmento moda & atacado */
+        :root {
+            --rose-gold: #c2a094;
+            --deep-burgundy: #6b2e3b;
+            --champagne: #f7ede2;
+            --charcoal: #2f2e2e;
+            --accent-gold: #c9a87b;
+        }
+        .navbar {
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            padding: 1rem 0;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: var(--deep-burgundy) !important;
+        }
+        .navbar-brand span {
+            font-size: 1rem;
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
+            color: #8f6b5e;
+        }
+        .btn-outline-custom {
+            border: 1px solid var(--rose-gold);
+            color: var(--deep-burgundy);
+            border-radius: 30px;
+            padding: 0.4rem 1.5rem;
+            transition: 0.3s;
+        }
+        .btn-outline-custom:hover {
+            background: var(--rose-gold);
+            color: white;
+            border-color: var(--rose-gold);
+        }
+        .hero {
+            background: linear-gradient(97deg, #fff4ed 0%, #f9e9e0 100%);
+            padding: 5rem 0 4rem;
+            border-bottom: 1px solid rgba(194,160,148,0.2);
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--deep-burgundy);
+        }
+        .hero .lead {
+            color: #5c4b45;
+            font-size: 1.2rem;
+        }
+        .badge-atacado {
+            background: var(--accent-gold);
+            color: #2b2a28;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: var(--deep-burgundy);
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 65px;
+            height: 3px;
+            background: var(--rose-gold);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 1rem;
+        }
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            transition: all 0.25s ease;
+            border: 1px solid #f1e2da;
+            height: 100%;
+        }
+        .info-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(107,46,59,0.12);
+            border-color: var(--rose-gold);
+        }
+        .contact-card {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 1.8rem;
+            border-left: 6px solid var(--accent-gold);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+        }
+        .footer {
+            background: #1e1b1a;
+            color: #e3d6cf;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+            border: none;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 28px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            color: white;
+        }
+        .btn-cta {
+            background-color: var(--deep-burgundy);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            color: white;
+        }
+        .btn-cta:hover {
+            background-color: #8f4050;
+            color: white;
+        }
+        .fab-icon {
+            background: #f4e9e3;
+            width: 55px;
+            height: 55px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            color: var(--deep-burgundy);
+        }
+        hr {
+            opacity: 0.3;
+            background-color: var(--rose-gold);
+        }
+        .feature-text {
+            font-size: 0.95rem;
+            color: #5c5a58;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding: 3rem 0;
+            }
+            .section-title:after {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Navbar elegante -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">CALZEDONIA <span>BRASIL</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-2">
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#atacado">Atacado</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item"><a class="btn btn-outline-custom ms-2" href="#orcamento"><i class="fas fa-envelope me-1"></i> Orçamento</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<style>
-  :root{
-    --brand:#0f172a;
-    --gold:#c9a14a;
-    --gold-soft:#e6cf94;
-    --ink:#1e293b;
-    --muted:#64748b;
-    --cream:#faf7f2;
-  }
-  *{ -webkit-font-smoothing:antialiased; }
-  body{ font-family:'Inter',sans-serif; color:var(--ink); background:#fff; }
-  h1,h2,h3,h4,.display-1,.display-2,.display-3,.display-4,.display-5{
-    font-family:'Playfair Display',serif; letter-spacing:-.5px;
-  }
-  .navbar{ background:rgba(255,255,255,.95); backdrop-filter:blur(8px); border-bottom:1px solid #eee; }
-  .navbar-brand{ font-family:'Playfair Display',serif; font-weight:700; font-size:1.5rem; color:var(--brand)!important; }
-  .navbar-brand span{ color:var(--gold); }
-  .nav-link{ color:var(--ink)!important; font-weight:500; }
-  .nav-link:hover{ color:var(--gold)!important; }
-  .btn-gold{ background:var(--gold); color:#fff; border:none; padding:.75rem 1.75rem; font-weight:500; border-radius:0; transition:.3s; }
-  .btn-gold:hover{ background:var(--brand); color:#fff; }
-  .btn-outline-gold{ border:1px solid var(--gold); color:var(--gold); padding:.75rem 1.75rem; font-weight:500; border-radius:0; background:transparent; transition:.3s; }
-  .btn-outline-gold:hover{ background:var(--gold); color:#fff; }
+    <!-- Hero principal -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="badge-atacado d-inline-block mb-3"><i class="fas fa-truck-fast me-1"></i> Atacado de Moda Premium</span>
+                    <h1 class="display-5 fw-bold">Moda e acessórios <br> para seu negócio</h1>
+                    <p class="lead mt-3">Fornecemos peças exclusivas, qualidade europeia e condições especiais para revendedores de todo Brasil. Seja parceiro Calzedonia Brasil.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#orcamento" class="btn btn-cta"><i class="fas fa-chart-line me-2"></i>Solicitar catálogo</a>
+                        <a href="#contato" class="btn btn-outline-custom"><i class="fas fa-phone-alt me-2"></i>Falar com consultor</a>
+                    </div>
+                    <div class="mt-4 d-flex gap-3 flex-wrap">
+                        <div><i class="fas fa-check-circle text-success"></i> <span class="small">Entrega em todo território nacional</span></div>
+                        <div><i class="fas fa-check-circle text-success"></i> <span class="small">Atacado com nota fiscal</span></div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <div class="bg-white p-4 rounded-4 shadow-sm" style="background: rgba(255,250,245,0.8);">
+                        <i class="fas fa-store fa-3x mb-3" style="color: var(--rose-gold);"></i>
+                        <h4><strong>+12 anos</strong> de excelência</h4>
+                        <p class="feature-text">Desde 2011 no mercado atacadista de vestuário e acessórios, oferecendo tendências e parceria sólida.</p>
+                        <hr>
+                        <small><i class="far fa-clock me-1"></i> Atendimento personalizado para lojistas</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  .hero{
-    position:relative; min-height:92vh; display:flex; align-items:center; color:#fff; overflow:hidden;
-    background:linear-gradient(rgba(15,23,42,.55),rgba(15,23,42,.65)),url('hero.jpg') center/cover no-repeat;
-  }
-  .hero .eyebrow{ letter-spacing:4px; text-transform:uppercase; color:var(--gold-soft); font-size:.85rem; font-weight:500; }
-  .hero h1{ font-size:clamp(2.5rem,5vw,4.5rem); line-height:1.05; }
-  .hero h1 em{ color:var(--gold); font-style:normal; }
-  .hero p.lead{ font-size:1.15rem; max-width:560px; color:#e5e7eb; }
+    <!-- Sessão de ícones + diferenciais -->
+    <section class="container py-5 my-3">
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <div class="info-card">
+                    <i class="fas fa-tshirt card-icon"></i>
+                    <h5 class="fw-bold">Vestuário completo</h5>
+                    <p class="feature-text">Blusas, calças, vestidos, malhas e coleções sazonais com foco em qualidade e design atemporal.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card">
+                    <i class="fas fa-glasses card-icon"></i>
+                    <i class="fas fa-shoe-prints card-icon" style="font-size: 1.8rem; margin-left: -0.3rem;"></i>
+                    <h5 class="fw-bold">Acessórios e calçados</h5>
+                    <p class="feature-text">Cintos, bijuterias, bolsas, lenços e sapatos — tudo para completar o mix da sua loja de moda.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card">
+                    <i class="fas fa-hand-holding-usd card-icon"></i>
+                    <h5 class="fw-bold">Condições especiais</h5>
+                    <p class="feature-text">Compre por atacado com preços competitivos, prazos flexíveis e entrega rápida direto para seu CNPJ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  .section{ padding:6rem 0; }
-  .eyebrow{ letter-spacing:4px; text-transform:uppercase; color:var(--gold); font-size:.8rem; font-weight:600; }
-  .section-title{ font-size:clamp(2rem,3.5vw,3rem); margin-bottom:1rem; color:var(--brand); }
+    <!-- Sobre + dados institucionais -->
+    <section id="sobre" class="container py-4">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <span class="badge-atacado mb-2 d-inline-block"><i class="fas fa-building"></i>  Desde 2011</span>
+                <h2 class="section-title">Quem somos</h2>
+                <p class="mt-3"><strong>Calzedonia Brasil Comercio de Moda e Acessorios LTDA</strong> é referência no segmento atacadista de vestuário e acessórios (exceto profissionais e de segurança). Atuamos com expertise para abastecer lojistas, boutiques e revendedores com peças de alto padrão e tendências europeias.</p>
+                <div class="mt-4 p-3 bg-white rounded-3 border">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <i class="fas fa-calendar-alt me-1" style="color: var(--deep-burgundy);"></i> <strong>Situação Cadastral</strong><br>
+                            <span class="small">06/04/2011 — Ativa</span>
+                        </div>
+                        <div class="col-6">
+                            <i class="fas fa-barcode me-1" style="color: var(--deep-burgundy);"></i> <strong>CNPJ</strong><br>
+                            <span class="small">13.566.271/0001-50</span>
+                        </div>
+                    </div>
+                    <hr class="my-2">
+                    <div class="small"><i class="fas fa-map-marker-alt me-1"></i> Razão Social: Calzedonia Brasil Comercio de Moda e Acessorios LTDA</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="fab-icon"><i class="fas fa-map-pin"></i></div>
+                        <div><strong>Matriz / Escritório comercial</strong><br>
+                        Av. Emb Macedo Soares, 10735 - Parque Residencial da Lapa<br>
+                        São Paulo - SP, 05035-901</div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="fab-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div><strong>Central de vendas</strong><br> (11) 4765-3700</div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="fab-icon"><i class="fas fa-envelope"></i></div>
+                        <div><strong>atacado@calzedoniabrasil.com.br</strong><br> (atendimento comercial B2B)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  .feature-card{ border:1px solid #eee; padding:2.5rem 2rem; height:100%; transition:.3s; background:#fff; }
-  .feature-card:hover{ border-color:var(--gold); transform:translateY(-4px); box-shadow:0 20px 40px -20px rgba(201,161,74,.25); }
-  .feature-icon{ width:64px; height:64px; display:flex; align-items:center; justify-content:center; background:var(--cream); color:var(--gold); font-size:1.75rem; margin-bottom:1.5rem; }
+    <!-- Frases / Citações e vantagens para atacado -->
+    <section id="atacado" class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Por que comprar no atacado?</h2>
+            <p class="lead">Benefícios exclusivos para lojistas e empreendedores da moda</p>
+        </div>
+        <div class="row gy-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center p-3">
+                    <i class="fas fa-charging-station fa-2x" style="color: var(--accent-gold);"></i>
+                    <h5 class="mt-3 fw-semibold">Margem competitiva</h5>
+                    <p class="small">Ganhe até 70% de margem com preços de atacado e peças de alto giro.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center p-3">
+                    <i class="fas fa-layer-group fa-2x" style="color: var(--accent-gold);"></i>
+                    <h5 class="mt-3 fw-semibold">Mix diversificado</h5>
+                    <p class="small">+500 SKUs por coleção, sempre alinhados com as principais passarelas.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center p-3">
+                    <i class="fas fa-shipping-fast fa-2x" style="color: var(--accent-gold);"></i>
+                    <h5 class="mt-3 fw-semibold">Logística ágil</h5>
+                    <p class="small">Entregamos em até 5 dias úteis para Sudeste, consulte prazos.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="text-center p-3">
+                    <i class="fas fa-headset fa-2x" style="color: var(--accent-gold);"></i>
+                    <h5 class="mt-3 fw-semibold">Suporte especializado</h5>
+                    <p class="small">Consultoria de vendas e materiais promocionais para sua revenda.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 p-4 rounded-4 text-center" style="background: #fcf5f0;">
+            <i class="fas fa-quote-left fa-2x me-2" style="color: var(--rose-gold);"></i> 
+            <em class="fs-5">"Parceria que veste o seu negócio: qualidade e confiança no atacado de moda."</em>
+            <i class="fas fa-quote-right fa-2x ms-2" style="color: var(--rose-gold);"></i>
+        </div>
+    </section>
 
-  .stat{ text-align:center; }
-  .stat .num{ font-family:'Playfair Display',serif; font-size:3rem;
+    <!-- Informações complementares + localização e horário -->
+    <section class="container py-3">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="bg-white rounded-4 p-4 h-100 shadow-sm">
+                    <h4 class="mb-3"><i class="fas fa-clock me-2" style="color: var(--deep-burgundy);"></i>Horário de Atendimento</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Segunda a Sexta: 9h às 18h</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Atendimento comercial exclusivo para pedidos atacado</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Showroom mediante agendamento (SP - Lapa)</li>
+                    </ul>
+                    <hr>
+                    <div><i class="fas fa-file-invoice"></i> <strong>Nota fiscal eletrônica</strong> — emissão imediata para todos os pedidos.</div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="bg-white rounded-4 p-4 h-100 shadow-sm">
+                    <h4 class="mb-3"><i class="fas fa-store me-2" style="color: var(--deep-burgundy);"></i>Segmento de atuação</h4>
+                    <p><strong>Comércio atacadista de artigos do vestuário e acessórios</strong> (exceto profissionais e de segurança).</p>
+                    <p>Atendemos lojas físicas, e-commerces, brechós e revendedores independentes. Peça sua primeira compra com condições especiais.</p>
+                    <a href="#orcamento" class="btn btn-sm btn-outline-custom mt-2">Solicitar tabela de preços</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Formulário de contato / Orçamento (CTA principal) -->
+    <section id="orcamento" class="container my-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                    <div class="row g-0">
+                        <div class="col-md-5" style="background: linear-gradient(135deg, #6b2e3b 0%, #9d5e6b 100%);">
+                            <div class="p-4 text-white h-100 d-flex flex-column justify-content-center">
+                                <i class="fas fa-tags fa-3x mb-3"></i>
+                                <h4 class="fw-bold">Solicite seu orçamento</h4>
+                                <p>Preencha o formulário e nossa equipe comercial entrará em contato em até 24h úteis. Vendas exclusivas para CNPJ.</p>
+                                <hr class="bg-white opacity-25">
+                                <div class="small"><i class="fas fa-phone-alt me-2"></i> (11) 4765-3700</div>
+                                <div class="small mt-2"><i class="fab fa-whatsapp me-2"></i> Atendimento também via WhatsApp comercial</div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 bg-white">
+                            <div class="p-4 p-lg-5">
+                                <form action="#" method="post">
+                                    <div class="mb-3">
+                                        <label class="form-label">Nome completo / Razão social</label>
+                                        <input type="text" class="form-control" placeholder="Ex: Loja Bella Moda" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">CNPJ</label>
+                                        <input type="text" class="form-control" placeholder="00.000.000/0001-00">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">E-mail comercial</label>
+                                        <input type="email" class="form-control" placeholder="contato@minhaloja.com.br" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Telefone / WhatsApp</label>
+                                        <input type="tel" class="form-control" placeholder="(11) 99999-9999">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Mensagem ou categoria de interesse</label>
+                                        <textarea class="form-control" rows="3" placeholder="Gostaria de receber catálogo de moda feminina e acessórios..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-cta w-100">Enviar orçamento <i class="fas fa-arrow-right ms-1"></i></button>
+                                    <p class="small text-muted mt-3"><i class="fas fa-lock"></i> Seus dados estão seguros e serão usados apenas para contato comercial.</p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa estático ilustrativo e redes -->
+    <div class="container mb-4">
+        <div class="rounded-4 overflow-hidden shadow-sm border">
+            <!-- Simulação de mapa elegante usando imagem inline do Google Maps placeholder (representação visual) -->
+            <iframe width="100%" height="280" style="border:0; pointer-events: none;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Av.+Emb+Macedo+Soares,+10735+-+Parque+Residencial+da+Lapa,+S%C3%A3o+Paulo+-+SP,+05035-901&center=-23.5027,-46.7128&zoom=14">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Footer completo -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mb-4">
+                    <h5 class="fw-bold">Calzedonia Brasil</h5>
+                    <p class="small">Comércio atacadista de vestuário e acessórios há mais de uma década. Qualidade e inovação para o seu negócio.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6>Informações fiscais</h6>
+                    <ul class="list-unstyled small">
+                        <li>CNPJ: 13.566.271/0001-50</li>
+                        <li>Razão Social: Calzedonia Brasil Comercio de Moda e Acessorios LTDA</li>
+                        <li>Situação Cadastral: ATIVA - 06/04/2011</li>
+                        <li>© 2025 - Todos os direitos reservados</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6>Contato rápido</h6>
+                    <p class="mb-1 small"><i class="fas fa-map-marker-alt me-1"></i> Av. Emb Macedo Soares, 10735<br> São Paulo - SP, CEP 05035-901</p>
+                    <p class="small"><i class="fas fa-phone"></i> (11) 4765-3700</p>
+                    <a href="#orcamento" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+                </div>
+            </div>
+            <hr class="mt-2 mb-3 bg-secondary">
+            <div class="text-center small opacity-75">Calzedonia Brasil Comercio de Moda e Acessorios LTDA | Atacado de moda e acessórios - tudo para sua loja.</div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scroll simples para suavizar -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if(href === "#" || href === "") return;
+                const target = document.querySelector(href);
+                if(target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
